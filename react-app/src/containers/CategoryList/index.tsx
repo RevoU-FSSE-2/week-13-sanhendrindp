@@ -10,7 +10,7 @@ const CategoryList = () => {
     method: "GET",
     headers: {
       Authorization:
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg1YzIwMjM3LTkyN2QtNGNjZi1iZDUyLWQ1NGE2Y2Y5ZWE3MCIsImlhdCI6MTY5NTI4NDkyMywiZXhwIjoxNjk1MzA2NTIzfQ.MWLAK68UnuRZNahd4vVVkzzXBKagb-1NapaOTrTk34U",
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg1YzIwMjM3LTkyN2QtNGNjZi1iZDUyLWQ1NGE2Y2Y5ZWE3MCIsImlhdCI6MTY5NTMwNzM1NSwiZXhwIjoxNjk1MzI4OTU1fQ.Vq_u5D77IYKySWg6akaA8SELygMF43vGZ1bcq2zyAh0",
     },
   };
 
@@ -21,11 +21,12 @@ const CategoryList = () => {
     );
     const response: GetCategoryResponse = await fetching.json();
     setCategories(response.data ?? []);
+    console.log(response.data);
   };
 
   useEffect(() => {
     getCategoryList();
-  });
+  }, []);
 
   const columns: ColumnsType<Category> = [
     {
@@ -42,6 +43,8 @@ const CategoryList = () => {
       title: "Status",
       dataIndex: "is_active",
       key: "is_active",
+      // render: (value: boolean) => String(value),
+      render: (is_active: boolean) => (is_active ? "Active" : "Deactive"),
     },
   ];
 
