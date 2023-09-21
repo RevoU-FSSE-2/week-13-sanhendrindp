@@ -1,9 +1,10 @@
 import "./App.css";
+import { CategoryList } from "./pages";
 
 function App() {
   return (
     <>
-      <div></div>
+      <CategoryList />
     </>
   );
 }
