@@ -10,3 +10,5 @@ export interface GetCategoryResponse {
   total_item: number;
   total_page: number;
 }
+
+export type CategoryForm = Omit<Category, "id">;

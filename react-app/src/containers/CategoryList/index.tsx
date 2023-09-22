@@ -14,7 +14,7 @@ const CategoryList = () => {
     method: "GET",
     headers: {
       Authorization:
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg1YzIwMjM3LTkyN2QtNGNjZi1iZDUyLWQ1NGE2Y2Y5ZWE3MCIsImlhdCI6MTY5NTM0NzgzOCwiZXhwIjoxNjk1MzY5NDM4fQ.gevF4I3ADJD9I3kb9dm0XIpXFdAJEZBopdwo0xyekwE",
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg1YzIwMjM3LTkyN2QtNGNjZi1iZDUyLWQ1NGE2Y2Y5ZWE3MCIsImlhdCI6MTY5NTM3NDMyMywiZXhwIjoxNjk1Mzk1OTIzfQ.wxmY-3yYHMf2pxhelTKkbqxviVspTbcL6qDvMVFJdDA",
     },
   };
 
@@ -67,6 +67,18 @@ const CategoryList = () => {
   return (
     <>
       <h1>List of Category</h1>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "left",
+          alignItems: "center",
+          marginBottom: "20px",
+        }}
+      >
+        <Button type={"primary"} onClick={() => navigate("/category/new")}>
+          Add Category
+        </Button>
+      </div>
       <CategoryListComponent columns={columns} data={categories} />
     </>
   );
