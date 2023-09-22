@@ -10,13 +10,14 @@ const CategoryEdit = () => {
 
   const { id } = useParams();
 
+  const token = sessionStorage.getItem("token");
+
   const getCategory = useCallback(async () => {
     const fetching = await fetch(
       `https://mock-api.arikmpt.com/api/category/${id}`,
       {
         headers: {
-          Authorization:
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg1YzIwMjM3LTkyN2QtNGNjZi1iZDUyLWQ1NGE2Y2Y5ZWE3MCIsImlhdCI6MTY5NTM5NjAwMSwiZXhwIjoxNjk1NDE3NjAxfQ.e3apOMqivgQExZAiwgyVKlciGpYmJnBvAzLtEpfwbq0",
+          Authorization: `Bearer ${token}`,
         },
       }
     );
@@ -24,7 +25,7 @@ const CategoryEdit = () => {
 
     setCategories(response);
     console.log(response);
-  }, [id]);
+  }, [id, token]);
 
   useEffect(() => {
     getCategory();
@@ -38,8 +39,7 @@ const CategoryEdit = () => {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
-            Authorization:
-              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg1YzIwMjM3LTkyN2QtNGNjZi1iZDUyLWQ1NGE2Y2Y5ZWE3MCIsImlhdCI6MTY5NTM5NjAwMSwiZXhwIjoxNjk1NDE3NjAxfQ.e3apOMqivgQExZAiwgyVKlciGpYmJnBvAzLtEpfwbq0",
+            Authorization: `Bearer ${token}`,
           },
           body: JSON.stringify(values),
         }

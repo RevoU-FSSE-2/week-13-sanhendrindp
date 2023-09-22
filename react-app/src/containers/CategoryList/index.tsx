@@ -9,20 +9,15 @@ const CategoryList = () => {
   const [categories, setCategories] = useState<Category[]>([]);
   const navigate = useNavigate();
 
-  // Token authorization manual inject
-  const requestOptions = {
-    method: "GET",
-    headers: {
-      Authorization:
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg1YzIwMjM3LTkyN2QtNGNjZi1iZDUyLWQ1NGE2Y2Y5ZWE3MCIsImlhdCI6MTY5NTM5NjAwMSwiZXhwIjoxNjk1NDE3NjAxfQ.e3apOMqivgQExZAiwgyVKlciGpYmJnBvAzLtEpfwbq0",
-    },
-  };
+  const token = sessionStorage.getItem("token");
 
   const getCategoryList = async () => {
-    const fetching = await fetch(
-      "https://mock-api.arikmpt.com/api/category",
-      requestOptions
-    );
+    const fetching = await fetch("https://mock-api.arikmpt.com/api/category", {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
     const response: GetCategoryResponse = await fetching.json();
     setCategories(response.data ?? []);
   };
@@ -39,14 +34,20 @@ const CategoryList = () => {
         {
           method: "DELETE",
           headers: {
-            Authorization:
-              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg1YzIwMjM3LTkyN2QtNGNjZi1iZDUyLWQ1NGE2Y2Y5ZWE3MCIsImlhdCI6MTY5NTM5NjAwMSwiZXhwIjoxNjk1NDE3NjAxfQ.e3apOMqivgQExZAiwgyVKlciGpYmJnBvAzLtEpfwbq0",
+            Authorization: `Bearer ${token}`,
           },
         }
       );
-      const response = await fetching.json();
+      // const response = await fetching.json();
 
-      if (response) {
+      // if (response) {
+      //   setCategories((categories) =>
+      //     categories.filter((category) => category.id !== id)
+      //   );
+      // }
+
+      if (fetching.ok) {
+        // Check if the request was successful (status code 204 No Content)
         setCategories((categories) =>
           categories.filter((category) => category.id !== id)
         );
