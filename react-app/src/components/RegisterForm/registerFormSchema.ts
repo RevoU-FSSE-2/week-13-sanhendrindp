@@ -1,11 +1,13 @@
 import * as yup from "yup";
 
 export const initialValues = {
+  name: "",
   email: "",
   password: "",
 };
 
 export const validationSchema = yup.object({
+  name: yup.string().required("Name is required"),
   email: yup
     .string()
     .email("Invalid email format")

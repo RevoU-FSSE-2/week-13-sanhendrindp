@@ -1,17 +1,17 @@
 import { Button, Card, Input, Typography } from "antd";
 import { useFormik } from "formik";
-import { initialValues, validationSchema } from "./loginFormSchema";
-import { LoginForm as LoginFormProps } from "../../types";
+import { initialValues, validationSchema } from "./registerFormSchema";
+import { RegisterForm as RegisterFormProps } from "../../types";
 import { useNavigate } from "react-router-dom";
 
 interface Props {
-  onSubmit: (values: LoginFormProps) => void;
+  onSubmit: (values: RegisterFormProps) => void;
 }
 
-const LoginForm = ({ onSubmit }: Props) => {
+const RegisterForm = ({ onSubmit }: Props) => {
   const navigate = useNavigate();
 
-  const handleSubmit = (values: LoginFormProps) => {
+  const handleSubmit = (values: RegisterFormProps) => {
     onSubmit(values);
   };
 
@@ -23,10 +23,29 @@ const LoginForm = ({ onSubmit }: Props) => {
 
   return (
     <>
-      <Card title={"Login"} bordered style={{ width: "350px" }}>
+      <Card title={"Register"} bordered style={{ width: "350px" }}>
         <form onSubmit={formMik.handleSubmit}>
           <div>
             <Typography.Paragraph style={{ textAlign: "left" }}>
+              {"Name"}
+            </Typography.Paragraph>
+            <Input
+              name={"name"}
+              placeholder="Your name"
+              value={formMik.values.name}
+              onChange={formMik.handleChange("name")}
+              status={formMik.errors.name && "error"}
+            />
+            {formMik.errors.name && (
+              <Typography.Paragraph style={{ color: "red" }}>
+                {formMik.errors.name}
+              </Typography.Paragraph>
+            )}
+          </div>
+          <div>
+            <Typography.Paragraph
+              style={{ marginTop: "10px", textAlign: "left" }}
+            >
               {"Email"}
             </Typography.Paragraph>
             <Input
@@ -66,23 +85,20 @@ const LoginForm = ({ onSubmit }: Props) => {
             htmlType={"submit"}
             style={{ width: "300px", marginTop: 20 }}
           >
-            Login
+            Register
           </Button>
-        </form>
-        <div style={{ marginTop: "30px" }}>
-          <p style={{ fontStyle: "italic" }}>Don't have any account yet? </p>
           <Button
             type={"default"}
             htmlType={"submit"}
-            style={{ width: "300px" }}
-            onClick={() => navigate("/register")}
+            style={{ width: "300px", marginTop: "20px" }}
+            onClick={() => navigate("/")}
           >
-            Register
+            Back
           </Button>
-        </div>
+        </form>
       </Card>
     </>
   );
 };
 
-export default LoginForm;
+export default RegisterForm;

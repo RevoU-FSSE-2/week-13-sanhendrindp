@@ -23,3 +23,18 @@ export interface LoginResponse {
     token: string;
   };
 }
+
+export interface RegisterForm {
+  name: string;
+  email: string;
+  password: string;
+}
+
+export interface RegisterResponse {
+  data: {
+    id: string;
+    name: string;
+    email: string;
+    password: string;
+  };
+}
