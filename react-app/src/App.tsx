@@ -1,6 +1,6 @@
 import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { CategoryList, CategoryNew, CategoryEdit } from "./pages";
+import { CategoryList, CategoryNew, CategoryEdit, Login } from "./pages";
 
 function App() {
   const router = createBrowserRouter([
@@ -15,6 +15,10 @@ function App() {
     {
       path: "/category/edit/:id",
       element: <CategoryEdit />,
+    },
+    {
+      path: "/",
+      element: <Login />,
     },
   ]);
 
