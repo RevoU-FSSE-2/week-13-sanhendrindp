@@ -1,6 +1,7 @@
 import { CategoryForm } from "../../components";
 import { useNavigate } from "react-router-dom";
 import { CategoryForm as CategoryFormProps } from "../../types";
+import { Card } from "antd";
 
 const CategoryNew = () => {
   const navigate = useNavigate();
@@ -28,7 +29,9 @@ const CategoryNew = () => {
 
   return (
     <>
-      <CategoryForm onSubmit={onSubmit} />
+      <Card title={"Add Category"} bordered style={{ width: "350px" }}>
+        <CategoryForm onSubmit={onSubmit} />
+      </Card>
     </>
   );
 };

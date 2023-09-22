@@ -1,4 +1,5 @@
 import { CategoryForm } from "../../components";
+import { Card } from "antd";
 // import { useParams } from "react-router-dom";
 
 const CategoryEdit = () => {
@@ -6,8 +7,9 @@ const CategoryEdit = () => {
 
   return (
     <>
-      {/* <div>Ini pages buat edit category: {params?.id}</div> */}
-      <CategoryForm />
+      <Card title={"Edit Category"} bordered style={{ width: "350px" }}>
+        <CategoryForm />
+      </Card>
     </>
   );
 };
