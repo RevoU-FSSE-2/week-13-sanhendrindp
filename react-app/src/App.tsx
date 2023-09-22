@@ -9,7 +9,7 @@ function App() {
       element: <CategoryList />,
     },
     {
-      path: "/category/:id",
+      path: "/category/edit/:id",
       element: <CategoryEdit />,
     },
   ]);

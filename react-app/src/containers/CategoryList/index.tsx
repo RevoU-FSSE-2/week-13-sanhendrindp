@@ -56,7 +56,7 @@ const CategoryList = () => {
       render: (_, record) => (
         <Button
           type={"primary"}
-          onClick={() => navigate(`/category/${record.id}`)}
+          onClick={() => navigate(`/category/edit/${record.id}`)}
         >
           Edit
         </Button>
