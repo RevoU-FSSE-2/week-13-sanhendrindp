@@ -14,6 +14,6 @@ export interface GetCategoryResponse {
 export type CategoryForm = Omit<Category, "id">;
 
 export interface LoginForm {
-  username: string;
+  email: string;
   password: string;
 }

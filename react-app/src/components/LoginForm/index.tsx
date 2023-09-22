@@ -24,17 +24,17 @@ const LoginForm = ({ onSubmit }: Props) => {
         <form onSubmit={formMik.handleSubmit}>
           <div>
             <Typography.Paragraph style={{ textAlign: "left" }}>
-              {"Username"}
+              {"Email"}
             </Typography.Paragraph>
             <Input
-              name={"username"}
-              value={formMik.values.username}
-              onChange={formMik.handleChange("username")}
-              status={formMik.errors.username && "error"}
+              name={"email"}
+              value={formMik.values.email}
+              onChange={formMik.handleChange("email")}
+              status={formMik.errors.email && "error"}
             />
-            {formMik.errors.username && (
+            {formMik.errors.email && (
               <Typography.Paragraph style={{ color: "red" }}>
-                {formMik.errors.username}
+                {formMik.errors.email}
               </Typography.Paragraph>
             )}
           </div>
