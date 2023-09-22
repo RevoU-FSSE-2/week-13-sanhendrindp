@@ -1,20 +1,21 @@
 import { Typography, Input, Select, Button } from "antd";
 import { useFormik } from "formik";
 import { initialValues, validationSchema } from "./categoryFormSchema";
-import { CategoryForm as CategoryFormProps } from "../../types";
+import { CategoryForm as CategoryFormProps, Category } from "../../types";
 import { useNavigate } from "react-router-dom";
 
 interface Props {
   onSubmit: (values: CategoryFormProps) => void;
+  category?: Category;
 }
 
-const CategoryForm = ({ onSubmit }: Props) => {
+const CategoryForm = ({ onSubmit, category }: Props) => {
   const handleSubmit = (values: CategoryFormProps) => {
     onSubmit(values);
   };
 
   const formMik = useFormik({
-    initialValues: initialValues,
+    initialValues: category ?? initialValues,
     onSubmit: handleSubmit,
     validationSchema: validationSchema,
   });

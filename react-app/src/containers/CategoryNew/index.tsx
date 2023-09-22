@@ -15,7 +15,7 @@ const CategoryNew = () => {
           headers: {
             "Content-Type": "application/json",
             Authorization:
-              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg1YzIwMjM3LTkyN2QtNGNjZi1iZDUyLWQ1NGE2Y2Y5ZWE3MCIsImlhdCI6MTY5NTM3NDMyMywiZXhwIjoxNjk1Mzk1OTIzfQ.wxmY-3yYHMf2pxhelTKkbqxviVspTbcL6qDvMVFJdDA",
+              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg1YzIwMjM3LTkyN2QtNGNjZi1iZDUyLWQ1NGE2Y2Y5ZWE3MCIsImlhdCI6MTY5NTM5NjAwMSwiZXhwIjoxNjk1NDE3NjAxfQ.e3apOMqivgQExZAiwgyVKlciGpYmJnBvAzLtEpfwbq0",
           },
           body: JSON.stringify(values),
         }
