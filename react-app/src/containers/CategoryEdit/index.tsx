@@ -41,11 +41,16 @@ const CategoryEdit = () => {
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
           },
-          body: JSON.stringify(values),
+          body: JSON.stringify({ ...values, id: id }),
         }
       );
-      await fetching.json();
-      navigate("/category");
+      // await fetching.json();
+      if (fetching.status === 204) {
+        window.alert(`Success edit category for ID: ${id}`);
+        navigate("/category");
+      } else {
+        window.alert(`Failed edit category`);
+      }
     } catch (error) {
       alert(error);
     }
