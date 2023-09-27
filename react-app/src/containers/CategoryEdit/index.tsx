@@ -1,5 +1,5 @@
 import { CategoryForm } from "../../components";
-import { Card } from "antd";
+import { Card, notification } from "antd";
 import { useCallback, useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { CategoryForm as CategoryFormProps, Category } from "../../types";
@@ -46,10 +46,18 @@ const CategoryEdit = () => {
       );
       // await fetching.json();
       if (fetching.status === 204) {
-        window.alert(`Success edit category for ID: ${id}`);
+        notification.success({
+          message: `Success edit category for ID: ${id}`,
+          duration: 4,
+          className: "custom-notification",
+        });
         navigate("/category");
       } else {
-        window.alert(`Failed edit category`);
+        notification.error({
+          message: `Failed to edit category`,
+          duration: 4,
+          className: "custom-notification",
+        });
       }
     } catch (error) {
       alert(error);
