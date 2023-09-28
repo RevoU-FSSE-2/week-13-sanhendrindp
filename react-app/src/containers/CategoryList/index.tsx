@@ -98,19 +98,28 @@ const CategoryList = () => {
     },
   ];
 
+  // To handle Signout button
+  const handleSignout = () => {
+    sessionStorage.removeItem("token");
+    window.location.replace("/");
+  };
+
   return (
     <>
       <h1>List of Category</h1>
       <div
         style={{
           display: "flex",
-          justifyContent: "left",
+          justifyContent: "space-between",
           alignItems: "center",
           marginBottom: "20px",
         }}
       >
         <Button type={"primary"} onClick={() => navigate("/category/new")}>
           Add Category
+        </Button>
+        <Button type={"default"} onClick={handleSignout}>
+          Signout
         </Button>
       </div>
       <CategoryListComponent columns={columns} data={categories} />
