@@ -23,7 +23,7 @@ const RegisterForm = ({ onSubmit }: Props) => {
 
   return (
     <>
-      <Card title={"Register"} bordered style={{ width: "350px" }}>
+      <Card title={"Register Page"} bordered style={{ width: "350px" }}>
         <form onSubmit={formMik.handleSubmit}>
           <div>
             <Typography.Paragraph style={{ textAlign: "left" }}>

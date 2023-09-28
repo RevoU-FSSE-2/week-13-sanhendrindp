@@ -23,7 +23,7 @@ const LoginForm = ({ onSubmit }: Props) => {
 
   return (
     <>
-      <Card title={"Login"} bordered style={{ width: "350px" }}>
+      <Card title={"Login Page"} bordered style={{ width: "350px" }}>
         <form onSubmit={formMik.handleSubmit}>
           <div>
             <Typography.Paragraph style={{ textAlign: "left" }}>

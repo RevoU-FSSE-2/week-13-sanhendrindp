@@ -119,7 +119,7 @@ const CategoryList = () => {
           Add Category
         </Button>
         <Button type={"default"} onClick={handleSignout}>
-          Signout
+          Sign Out
         </Button>
       </div>
       <CategoryListComponent columns={columns} data={categories} />
